@@ -50,6 +50,9 @@ class Run extends BaseCommand
         $this->container = $container;
         $this->socket = $socket;
         $this->loop = $loop;
+
+        $this->addArgument('port', '8001', 'the port where the webserver is supposed to answer');
+        $this->addArgument('host', '0.0.0.0', 'the host to which this webserver binds');
     }
 
     /**
@@ -59,9 +62,12 @@ class Run extends BaseCommand
      */
     public function run(array $options, array $arguments)
     {
+        $port = isset($arguments[0]) ? $arguments[0] : "8001";
+        $host = isset($arguments[1]) ? $arguments[1] : "0.0.0.0";
+
         /** @var \Castle23\Http\Server $server */
         $server = $this->container->getInstanceOf(Server::class);
-        $this->socket->listen(8001, "0.0.0.0");
+        $this->socket->listen($port, $host);
         $this->loop->run();
     }
 }
