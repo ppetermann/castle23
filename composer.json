@@ -1,0 +1,38 @@
+{
+    "name": "king23/castle23",
+    "description": "a toolset to build your own command line tools",
+    "type": "lib",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Peter Petermann",
+            "email": "ppetermann80@googlemail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "knight23/core": "dev-master",
+        "padraic/phar-updater": "~1.0",
+        "react/socket": "~0.4",
+        "react/stream": "~0.4",
+        "psr/http-message": "~1.0",
+        "zendframework/zend-diactoros": "~1.0",
+        "king23/king23": "dev-develop"
+
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "~4.6.9",
+        "devedge/stubs": "~2.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Castle23\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/castle23"
+    ]
+}

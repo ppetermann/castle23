@@ -1,0 +1,24 @@
+<?php
+
+require_once __DIR__ ."/../vendor/autoload.php";
+
+/** @var \King23\DI\DependencyContainer $container */
+$container = require_once __DIR__ ."/../config/services.php";
+
+/** @var \King23\Http\RouterInterface $router */
+$router = $container->getInstanceOf(\King23\Http\RouterInterface::class);
+
+$router->addRoute('/', \Castle23\TestView::class, 'index');
+
+/** @var \Knight23\Core\Knight23 $knight23 */
+$knight23 = $container->getInstanceOf(\Knight23\Core\RunnerInterface::class);
+
+//set package name and version for self-updater etc.
+$knight23->setPackage("king23/castle23");
+$knight23->setVersion("0.0.0");
+
+// add commands
+$knight23->addCommand(\Knight23\Core\Command\SelfUpdateCommand::class);
+$knight23->addCommand(\Castle23\Command\Run::class);
+
+$knight23->run($argc, $argv);
