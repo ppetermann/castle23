@@ -82,5 +82,4 @@ $container->register(
     }
 );
 
-
 return $container;
