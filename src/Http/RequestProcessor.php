@@ -82,8 +82,7 @@ class RequestProcessor extends EventEmitter
     {
 
         $queue = clone $this->queue;
-        $queue->run($request, $response);
-
+        $response = $queue->run($request, $response);
 
         $reasonPhrase = $response->getReasonPhrase();
         $reasonPhrase = ($reasonPhrase ? ' '.$reasonPhrase : '');

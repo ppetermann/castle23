@@ -1,4 +1,10 @@
 <?php
+# This file is basically an example
+# there is a high chance you want to make a customized version for your own application
+# for example adding the routes that your application has (or load the routes from somewhere else)
+# or loading other service.
+#
+# again, this is an example!
 
 require_once __DIR__ ."/../vendor/autoload.php";
 
@@ -8,7 +14,7 @@ $container = require_once __DIR__ ."/../config/services.php";
 /** @var \King23\Http\RouterInterface $router */
 $router = $container->getInstanceOf(\King23\Http\RouterInterface::class);
 
-$router->addRoute('/', \Castle23\TestView::class, 'index');
+$router->addRoute('/', \Castle23\Example\ExampleView::class, 'index');
 
 /** @var \Knight23\Core\Knight23 $knight23 */
 $knight23 = $container->getInstanceOf(\Knight23\Core\RunnerInterface::class);
@@ -19,6 +25,6 @@ $knight23->setVersion("0.0.0");
 
 // add commands
 $knight23->addCommand(\Knight23\Core\Command\SelfUpdateCommand::class);
-$knight23->addCommand(\Castle23\Command\Run::class);
+$knight23->addCommand(\Castle23\Command\Serve::class);
 
 $knight23->run($argc, $argv);

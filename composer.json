@@ -24,7 +24,8 @@
 
     "require-dev": {
         "phpunit/phpunit": "~4.6.9",
-        "devedge/stubs": "~2.0"
+        "devedge/stubs": "~2.0",
+        "filp/whoops": "~1.1"
     },
 
     "autoload": {

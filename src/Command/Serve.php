@@ -10,7 +10,7 @@ use Knight23\Core\RunnerInterface;
 use React\EventLoop\LoopInterface;
 use React\Socket\ServerInterface;
 
-class Run extends BaseCommand
+class Serve extends BaseCommand
 {
     /**
      * @var LoopInterface
@@ -41,8 +41,8 @@ class Run extends BaseCommand
         ServerInterface $socket,
         LoopInterface $loop
     ) {
-        $this->setName("run");
-        $this->setShort("run");
+        $this->setName("serve");
+        $this->setShort("serve");
 
         $this->output = $output;
         $this->banner = $banner;

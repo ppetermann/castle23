@@ -1,12 +1,12 @@
 <?php
-namespace Castle23;
+namespace Castle23\Example;
 
 use King23\View\View;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 
-class TestView extends View
+class ExampleView extends View
 {
 
     /**
