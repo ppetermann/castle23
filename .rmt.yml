@@ -38,5 +38,5 @@ master:
             format: semantic
             dump-commits: true
         update-version-class:
-            class: src/Castle23.php
+            class: bin/castle23
         vcs-commit: ~              # Commit the CHANGELOG
