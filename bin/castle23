@@ -21,7 +21,7 @@ $knight23 = $container->getInstanceOf(\Knight23\Core\RunnerInterface::class);
 
 //set package name and version for self-updater etc.
 $knight23->setPackage("king23/castle23");
-$knight23->setVersion("0.0.1");
+$knight23->setVersion("0.0.2");
 
 // add commands
 $knight23->addCommand(\Knight23\Core\Command\SelfUpdateCommand::class);
