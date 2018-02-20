@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "216397c1f40c0c1a3d90bc1de3cf999e",
+    "content-hash": "9a8a040c023a110e7af636180ad8e989",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -310,7 +310,7 @@
         },
         {
             "name": "knight23/core",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ppetermann/knight23.git",
@@ -2518,9 +2518,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "knight23/core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
