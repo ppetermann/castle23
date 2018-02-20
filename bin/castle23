@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 # This file is basically an example
 # there is a high chance you want to make a customized version for your own application

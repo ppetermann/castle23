@@ -1,12 +1,12 @@
 <?php
 namespace Castle23\Example;
 
-use King23\View\View;
+use King23\Controller\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 
-class ExampleView extends View
+class ExampleView extends Controller
 {
 
     /**
@@ -31,7 +31,7 @@ class ExampleView extends View
         return $this->log;
     }
 
-    public function index($params, ServerRequestInterface $request, ResponseInterface $response)
+    public function index(ServerRequestInterface $request, ResponseInterface $response)
     {
         $response->withStatus(200)
             ->getBody()->write('hello world');
