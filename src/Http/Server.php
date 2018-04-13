@@ -8,10 +8,6 @@ use React\Socket\ServerInterface;
 class Server
 {
     /**
-     * @var ServerInterface
-     */
-    private $socketServer;
-    /**
      * @var MiddlewareQueueInterface
      */
     private $queue;
@@ -20,11 +16,14 @@ class Server
      * @param ServerInterface $socketServer
      * @param MiddlewareQueueInterface $queue
      */
-    public function __construct(ServerInterface $socketServer, MiddlewareQueueInterface $queue)
+    public function __construct(MiddlewareQueueInterface $queue)
     {
-        $this->socketServer = $socketServer;
-        $this->socketServer->on('connection', [$this, 'connection']);
         $this->queue = $queue;
+    }
+
+    public function setup(ServerInterface $socketServer)
+    {
+        $socketServer->on('connection', [$this, 'connection']);
     }
 
     public function connection(ConnectionInterface $connection)

@@ -8,12 +8,3 @@ $container->register(
         return \React\EventLoop\Factory::create();
     }
 );
-
-$container->register(
-    \React\Socket\ServerInterface::class,
-    function() use ($container) {
-        /** @var \React\EventLoop\LoopInterface $loop */
-        $loop = $container->getInstanceOf(\React\EventLoop\LoopInterface::class);
-        return new \React\Socket\Server($loop);
-    }
-);

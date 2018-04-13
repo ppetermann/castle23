@@ -11,8 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
-        "knight23/core": "~0.1",
+        "php": "~7.0",
+        "knight23/core": "~0.2",
         "padraic/phar-updater": "~1.0",
         "react/socket": "~0.4",
         "react/stream": "~0.4",
