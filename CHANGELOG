@@ -1,4 +1,14 @@
 
+VERSION 1  CHANGED TO WORK WITH RECENT REACTPHP, WONT WORK THE WAY IT USED TO
+=============================================================================
+
+   Version 1.0 - changed to work with recent reactphp, wont work the way it used to
+      13/04/2018 20:00  1.0.0  initial release
+         66ff9a4 update dependencies
+         1a2629c switch away from dev branch
+         1fac4fa make it work with current king23
+         7f8e719 depedency update
+
 VERSION 0  INITIAL DEV RELEASE
 ==============================
 
