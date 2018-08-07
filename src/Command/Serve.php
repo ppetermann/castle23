@@ -1,14 +1,13 @@
 <?php
 namespace Castle23\Command;
 
-use Castle23\Http\Server;
 use King23\DI\ContainerInterface;
 use Knight23\Core\Banner\BannerInterface;
 use Knight23\Core\Command\BaseCommand;
 use Knight23\Core\Output\WriterInterface;
-use Knight23\Core\RunnerInterface;
 use React\EventLoop\LoopInterface;
-use React\Socket\ServerInterface;
+use React\Http\Server;
+
 
 class Serve extends BaseCommand
 {
@@ -20,19 +19,26 @@ class Serve extends BaseCommand
      * @var ContainerInterface
      */
     private $container;
-    /**
-     * @var ServerInterface
-     */
-    private $socket;
+
     /**
      * @var Server
      */
     private $httpServer;
 
     /**
+     * @var BannerInterface
+     */
+    private $banner;
+
+    /**
+     * @var WriterInterface
+     */
+    private $output;
+
+
+    /**
      * @param WriterInterface $output
      * @param BannerInterface $banner
-     * @param RunnerInterface $runner
      * @param ContainerInterface $container
      * @param LoopInterface $loop
      * @param Server $httpServer
@@ -40,7 +46,6 @@ class Serve extends BaseCommand
     public function __construct(
         WriterInterface $output,
         BannerInterface $banner,
-        RunnerInterface $runner,
         ContainerInterface $container,
         LoopInterface $loop,
         Server $httpServer
@@ -50,7 +55,6 @@ class Serve extends BaseCommand
 
         $this->output = $output;
         $this->banner = $banner;
-        $this->runner = $runner;
         $this->container = $container;
         $this->loop = $loop;
 
@@ -63,7 +67,6 @@ class Serve extends BaseCommand
      * @param array $options
      * @param array $arguments
      * @return mixed
-     * @throws \King23\DI\Exception\NotFoundException
      */
     public function run(array $options, array $arguments)
     {
@@ -72,9 +75,9 @@ class Serve extends BaseCommand
 
         $uri = "$host:$port";
 
-        $server = new \React\Socket\Server($uri, $this->loop);
-        $this->httpServer->setup($server);
-
+        $socket = new \React\Socket\Server($uri, $this->loop);
+        $this->httpServer->listen($socket);
         $this->loop->run();
+        return 0;
     }
 }
