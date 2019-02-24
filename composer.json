@@ -19,7 +19,7 @@
         "react/http": "~0.8",
         "psr/http-message": "~1.0",
         "psr/http-factory": "~1.0",
-        "king23/king23": "~3.0.0-alpha"
+        "king23/king23": "~3.0.0"
 
     },
 
